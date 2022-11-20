@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Candara', sans-serif;
+}
+
+body {
+    background-image: url("/imagens/background-waves.svg");
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    background-size: cover;
+
+    justify-content: center;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    display: block;
+    margin: auto;
+    padding: 0.5rem;
+}
+
+
+#container-header {
+    display: flex;
+    position: relative;
+    min-width: 98vw;
+    height: 20vh;
+    /*margin-top: 0.5%;
+    margin-left: 0.5%;
+    margin-right: 0.5%; */
+    margin-bottom: 1%;
+    padding: 1rem;
+    
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.075);
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    /*border: 2px solid green;*/
+}
+
+nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid red;*/
+}
+
+nav li {
+    display: inline;
+    margin-top: 0;    
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 2px solid blue;*/
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #282828;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+#renderizado {
+    display: block;
+    border: 4px solid blueviolet;
+}
+
+#page-info {
+    display: flex;
+    border: 2px solid black;
+}
+
+#creation-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    height: auto;
+
+    border-radius: 8px;
+    background: #fea31d;
+}
+
+#txt-creation {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#plus-button {
+    background: none;
+    border: none;
+}
+
+ion-icon {
+    font-size: 300%;
+}
+
