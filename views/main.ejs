@@ -18,22 +18,62 @@
                     <li><a href="popular.html">My groups</a></li>
                     <li><a href="marketplace.html">Marketplace</a></li>
                     <li><a href="perfil.html">Profile</a></li>
-
                 </ul>
             </nav>
         </div>
-        <!--<div id="renderizado">
-            <% for (let i = 0; i < total; i++) { %>
-                <span><%= grupos[i].nome %></span>
-            <% } %>
-        </div>-->
         <div id="page-info">
             <div id="creation-group">
                 <span id="txt-creation">New group</span>
+            </div>
+            <div id="creation-group-button">
                 <button type="button" id="plus-button">
                     <ion-icon name="add-circle-outline"></ion-icon>
                 </button>
             </div>
         </div>
+
+        <div id="renderizado">
+            <% for (let i = 0; i < total; i++) { %>
+                <div id="card-render">
+                    <div class="card-img">
+                        <img src="/imagens/grupo.png" class="group-img">
+                    </div>
+                    <div class="card-span">      
+                        <span><%= nome[i] %></span>
+                    </div>
+                    <div class="card-button">
+                        <button type="submit" class="join-button">Join!</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="popup">
+            <div class="close-button">&times;</div>
+            <form action="/criar" method="post" class="form">
+                <h2>Create group</h2>
+                <div class="form-element">
+                    <input type="text" id="group-name" placeholder=" " name="nomeGrupo" required>
+                    <label for="group-name">Name</label>
+                </div>
+                <div class="form-button">
+                    <button type="submit">Create!</button>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            document.querySelector("#plus-button").addEventListener("click", function(){
+                document.querySelector(".popup").classList.add("active");
+            })
+            document.querySelector(".popup .close-button").addEventListener("click", function(){
+                document.querySelector(".popup").classList.remove("active");
+            })
+            if (document.getElementById("group-name") !== valueMissing){
+                document.querySelector(".popup .form-button").addEventListener("click", function(){
+                document.querySelector(".popup").classList.remove("active");
+            })
+            }
+        </script>
     </body>
 </html>

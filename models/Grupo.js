@@ -11,11 +11,6 @@ const Grupo = db.define('Grupo', {
     nome_grupo: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    usuario_Criador: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        foreignKey: true
     }
 },
     {
@@ -26,4 +21,5 @@ const Grupo = db.define('Grupo', {
 //Criar tabela Grupos
 Grupo.sync();  //o método sync só cria a tabela se não existir 
 
+/*Grupo.sync({alter: true});*/
 module.exports = Grupo;

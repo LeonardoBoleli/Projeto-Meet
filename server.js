@@ -4,11 +4,12 @@ const server = express();
 const db = require('./models/db'); //importando o arquivo db.js
 const Usuario = require('./models/Usuario');  //Importando o arquivo Ususario.js
 const Grupo = require('./models/Grupo');
+const { json } = require("body-parser");
+const path = require('path');
 
 server.use(bodyParser.urlencoded({extended:false}));
 server.use(bodyParser.json());
-server.use(express.static('D:/Léo/PUC/Projeto_Integrador'));
-
+server.use(express.static(path.join(__dirname)));
 server.set('view engine', 'ejs'); /*template ejs */
 server.set('views', './views');
 
@@ -22,7 +23,7 @@ server.post('/cadastrar', async (req, res) => {
         senha: req.body.password
     })
     .then(() => {
-        res.redirect('principal.html');
+        res.render('main');
     }).catch(() =>{
         return res.status(400).json({
             erro: true,
@@ -30,12 +31,43 @@ server.post('/cadastrar', async (req, res) => {
         })
     })
 })
- 
 
-server.post('/main', function(req, res){   /* redireciona para a pagina main */
-    console.log(req.body.usuario);
-    console.log(req.body.senha);
-    res.render('main', {total:2, grupos:[{nome: 'grupo1'}, {nome: 'grupo2'}]});
+
+async function buscaGrupos(){
+    const grupos = await Grupo.findAll();
+    strGrupos = JSON.stringify(grupos);
+    console.log("strGrupos: " + typeof strGrupos);
+    var jsonGrupos = JSON.parse(strGrupos);
+    console.log("jsonGrupos: " + jsonGrupos[1]);
+    var nomes = [];
+
+    for (let i = 0; i < jsonGrupos.length; i++){
+        nomes.push(jsonGrupos[i].nome_grupo);
+    }
+
+    console.log("NOMES: " + nomes);
+
+    return [jsonGrupos.length, nomes];
+}
+
+server.post('/main',  async (req, res) => {  /* redireciona para a pagina main */
+   const [tamanho, nome] = await buscaGrupos();
+   console.log("Nome: " + nome);
+   res.render('main', {total: tamanho, nome: nome});
+})
+
+server.post("/criar", async(req, res) => {
+    const grupo = await Grupo.create({
+        nome_grupo: req.body.nomeGrupo
+        })
+        .then(() => {
+            console.log("Grupo criado!")
+        }).catch(() =>{
+            return res.status(400).json({
+                erro: true,
+                mensagem: "Erro: Não foi possível criar grupo..."
+            })
+        })
 })
 
 server.listen(3000, ()=>{
