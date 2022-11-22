@@ -70,6 +70,6 @@ server.post("/criar", async(req, res) => {
         })
 })
 
-server.listen(3000, ()=>{
+server.listen(80, ()=>{
     console.log('SERVIDOR RODANDO...\n');
 })
