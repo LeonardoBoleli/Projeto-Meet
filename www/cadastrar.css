@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Candara', sans-serif;
+}
+
+body {
+    background-image: url("/imagens/background-waves.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#container-login {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    max-width: 100vw; /*aqui mexeu com oq eu queria*/
+    min-width: 25vw;
+    min-height: 40vh;
+    margin: auto;
+    padding: 1rem;
+
+    border: 4px solid black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.075);
+}
+
+#container-top {
+    margin-bottom: 10%;
+}
+
+#container-tucano {
+    position: relative;
+    width: 20%;
+}
+
+#tucano-img {
+    width: 100%;
+    height: 100%;
+}
+
+#login-text {
+    position: absolute;
+    top: 8%;
+    left: 15%;
+    width: 50%;
+    margin: 1%;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #282828;
+}
+
+#container-login-inputs {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 5% 0% 10% 0%;
+    justify-content: center;
+}
+
+label {
+    font-size: 20px;
+}
+
+.label-float{
+    position: relative;
+    padding-top: 0rem;
+}
+  
+.label-float input{
+border: 0;
+border-bottom: 2px solid #282828;
+outline: none;
+max-width: 100vw;
+font-size: 1.7rem;
+transition: all .3s ease-out;
+-webkit-transition: all .3s ease-out;
+-moz-transition: all .3s ease-out;
+border-radius:0;
+}
+
+.label-float input:focus{
+border-bottom: 2px solid #282828;
+}
+  
+.label-float input::placeholder{
+color:transparent;
+}
+  
+.label-float label{
+pointer-events: none;
+position: absolute;
+top: 0;
+left: 0;
+margin-top: 10%;
+transition: all .3s ease-out;
+-webkit-transition: all .3s ease-out;
+-moz-transition: all .3s ease-out;
+}
+  
+
+.label-float input:required:invalid + label{
+color: #282828
+}
+
+  .label-float input:focus:required:invalid{
+border-bottom: 2px solid #282828;
+}
+
+.label-float input:required:invalid + label:before{
+content: "";
+}
+
+.label-float input:focus + label,
+.label-float input:not(:placeholder-shown) + label{
+font-size: 1rem;
+margin-top: 0;
+color: #282828;
+}
+
+.input {
+    outline: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    margin-top: 5%;
+    background: none;
+    border-bottom: 1px solid rgba(255,255,255,0.1)
+}
+
+#container-button {
+    display: flex;
+    justify-content: center;
+    margin: 10% auto 0% auto;
+}
+
+
+#login-button {
+    background: #ff4267;
+    color: #282828;
+    font-size: 1.2rem;
+    width: 98%;
+    margin: 5% 0% 1% 0%;
+    border-radius: 20px;
+    transition: all 0.1s ease-in;
+}
+
+#login-button:hover {
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#container-login2 {
+    margin-top: 5%;
+    padding: 0;
+}
+
+#container-txt1 {
+    display: flex;
+    justify-content: center;
+    margin: 5% 0% 2% 0%;
+}
+
+#container-outside-logo {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    margin-bottom: 0;
+}
+
+.container-logos {
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+    height: 5vh;
+}
+
+
+.logo-img {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#container-links-outside-outside {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+#container-links-outside {
+    display: block;
+    text-align: center;
+    margin-bottom: 0%;
+    padding: 1%;
+}
+
+#container-msg-links {
+    display: flex;
+    margin-bottom: 2%;
+}

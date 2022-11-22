@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <link rel="stylesheet" type="text/css" href="cadastrar.css">
+        <link rel="shortcut icon" type="image/png" href="/imagens/favicon-64x64.png">
+        <title>Meet</title>
+    </head>
+
+    <body>
+       <!-- <div id="container-principal"> -->
+            <div id="container-login">
+                <div id="container-top">
+                    <div id="container-tucano">
+                        <img id="tucano-img" src="imagens/tucanoNovo.png" draggable="false">
+                    </div>
+                    <div id="login-text">
+                        <p>Login</p>
+                    </div>
+                </div>
+                <div id="container-login-inputs">
+                    <form action="/main" method="post">  <!--VOLTAR AQUI PRA CONFIGURAR O SERVIDOR-->
+                        <div class="label-float">
+                            <input class="input" type="text" placeholder=" " id="usuario" name="username" required>
+                            <label>E-mail</label><br><br>
+                        </div> 
+                        <div class="label-float">
+                            <input class="input" type="password" placeholder=" " id="senha" name="password" required>
+                            <label>Password</label>
+                        </div>
+                            <div id="container-button">
+                                <button id="login-button" type="submit">Sign in</button>
+                            </div>
+                    </form>
+                </div>
+                <div id="container-login2">
+                    <div id="container-txt1">
+                        <p>Or connect with social media</p><br>
+                    </div>
+                    <div id="container-outside-logo">
+                        <div class="container-logos">
+                            <img class="logo-img" src="/imagens/facebook-icon.png">
+                            <img class="logo-img" src="/imagens/google-icon.png">
+                            <img class="logo-img" src="/imagens/apple-icon.png">
+                        </div>
+                    </div>
+                </div>
+                <div id="container-links-outside-outside">
+                    <div id="container-links-outside">
+                        <nav>
+                            <ul>
+                                <div id="container-msg-links">
+                                    <p>Não tem uma conta? &nbsp;</p>   
+                                    <li><a href="cadastrar.html">Cadastre-se</a></li>
+                                </div>
+                                <div id="container-msg-links">
+                                    <p>Esqueceu sua senha? &nbsp;</p>
+                                    <li><a href="redefinir-senha.html">Trocar senha</a></li>
+                                </div>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        <!--</div>-->
+    </body>
+</html>
