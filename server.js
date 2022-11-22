@@ -9,8 +9,9 @@ const path = require('path');
 
 server.use(bodyParser.urlencoded({extended:false}));
 server.use(bodyParser.json());
-server.use(express.static("www"));
-server.use(express.static("imagens"));
+//server.use(express.static("www"));
+//server.use(express.static("imagens"));
+server.use(express.static(path.join(__dirname)));
 server.set('view engine', 'ejs'); /*template ejs */
 server.set('views', './views');
 
