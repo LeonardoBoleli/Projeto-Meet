@@ -10,8 +10,6 @@ const path = require('path');
 server.use(bodyParser.urlencoded({extended:false}));
 server.use(bodyParser.json());
 server.use(express.static("./www"));
-//server.use(express.static("imagens"));
-server.use(express.static(path.join(__dirname)));
 server.set('view engine', 'ejs'); /*template ejs */
 server.set('views', './views');
 
@@ -64,10 +62,10 @@ server.post("/criar", async(req, res) => {
         })
         .then(() => {
             console.log("Grupo criado!")
-        }).catch(() =>{
+        }).catch((e) =>{
             return res.status(400).json({
                 erro: true,
-                mensagem: "Erro: Não foi possível criar grupo..."
+                mensagem: "Erro: Não foi possível criar grupo...  " + e + "!"
             })
         })
 })
