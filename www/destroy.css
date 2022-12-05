@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    background-image: url("/imagens/background-waves.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#container-principal {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 20%;
+    height: 100%;
+
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.075);
+
+}
+
+#container-disconnect-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+#container-disconnect-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+#return-login-button {
+    background: #ff4267;
+    color: #282828;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border-radius: 20px;
+    transition: all 0.1s ease-in;
+}
+
+#return-login-button:hover {
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}

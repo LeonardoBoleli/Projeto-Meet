@@ -10,68 +10,62 @@
     </head>
 
     <body>
-       <!-- <div id="container-principal"> -->
-            <div id="container-login">
-                <div id="container-top">
-                    <div id="container-tucano">
-                        <img id="tucano-img" src="/imagens/tucanoNovo.png" draggable="false">
-                    </div>
-                    <div id="login-text">
-                        <p>Register</p>
-                    </div>
+        <div id="container-login">
+            <div id="container-top">
+                <div id="container-tucano">
+                    <img id="tucano-img" src="/imagens/tucanoNovo.png" draggable="false">
                 </div>
-                <div id="container-login-inputs">
-                    <form action="/cadastrar" method="post">  <!--VOLTAR AQUI PRA CONFIGURAR O SERVIDOR-->
-                        <div class="label-float">
-                            <input class="input" type="text" placeholder=" " id="usuario" name="fullname" required>
-                            <label>Full Name</label><br><br>
-                        </div>
-                        <div class="label-float">
-                            <input class="input" type="text" placeholder=" " id="usuario" name="username" required>
-                            <label>Username</label><br><br>
-                        </div> 
-                        <div class="label-float">
-                            <input class="input" type="text" placeholder=" " id="usuario" name="email" required>
-                            <label>E-mail</label><br><br>
-                        </div> 
-                        <div class="label-float">
-                            <input class="input" type="password" placeholder=" " id="senha" name="password" required>
-                            <label>Password</label>
-                        </div>
-                            <div id="container-button">
-                                <button id="login-button" type="submit">Sign up</button>
-                            </div>
-                    </form>
+                <div id="login-text">
+                    <span>Register</span>
                 </div>
-                <div id="container-login2">
-                    <div id="container-txt1">
-                        <p>Or connect with social media</p><br>
+            </div>
+            <div id="container-login-inputs">
+                <form action="/cadastrar" method="post"> <!--deveria ser um post aqui?-->
+                    <div class="label-float">
+                        <input class="input" type="text" placeholder=" " id="usuario" name="fullname" required>
+                        <label>Full Name</label><br><br>
                     </div>
-                    <div id="container-outside-logo">
-                        <div class="container-logos">
-                            <img class="logo-img" src="/imagens/facebook-icon.png">
-                            <img class="logo-img" src="/imagens/google-icon.png">
-                            <img class="logo-img" src="/imagens/apple-icon.png">
+                    <div class="label-float">
+                        <input class="input" type="text" placeholder=" " id="usuario" name="username" required>
+                        <label>Username</label><br><br>
+                    </div> 
+                    <div class="label-float">
+                        <input class="input" type="text" placeholder=" " id="usuario" name="email" required>
+                        <label>E-mail</label><br><br>
+                    </div> 
+                    <div class="label-float">
+                        <input class="input" type="password" placeholder=" " id="senha" name="password" required>
+                        <label>Password</label>
+                    </div>
+                        <div id="container-button">
+                            <button id="login-button" type="submit">Sign up</button>
                         </div>
-                    </div>
+                </form>
+            </div>
+            <div id="container-login2">
+                <div id="container-txt1">
+                    <span>Or connect with social media</span><br>
                 </div>
-                <div id="container-links-outside-outside">
-                    <div id="container-links-outside">
-                        <nav>
-                            <ul>
-                                <div id="container-msg-links">
-                                    <p>Não tem uma conta? &nbsp;</p>   
-                                    <li><a href="principal.html">Cadastre-se</a></li>
-                                </div>
-                                <div id="container-msg-links">
-                                    <p>Esqueceu sua senha? &nbsp;</p>
-                                    <li><a href="redefinir-senha.html">Trocar senha</a></li>
-                                </div>
-                            </ul>
-                        </nav>
+                <div id="container-outside-logo">
+                    <div class="container-logos">
+                        <img class="logo-img" src="/imagens/facebook-icon.png">
+                        <img class="logo-img" src="/imagens/google-icon.png">
+                        <img class="logo-img" src="/imagens/apple-icon.png">
                     </div>
                 </div>
             </div>
-        <!--</div>-->
+            <div id="container-links-outside-outside">
+                <div id="container-links-outside">
+                    <nav>
+                        <ul>
+                            <div id="container-msg-links">
+                                <span>Already have an account? &nbsp;</span>   
+                                <li><a href="index.html">Log in</a></li>
+                            </div>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

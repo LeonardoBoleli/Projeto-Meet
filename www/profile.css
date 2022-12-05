@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+
+* {
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    background-image: url("/imagens/background-waves.svg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow: hidden;
+    justify-content: center;
+    display: block;
+    margin: 0;
+}
+
+#container-header {
+    display: flex;
+    position: relative;
+    min-width: 98vw;
+    height: 10vh;
+    /*margin-top: 0.5%;
+    margin-left: 0.5%;
+    margin-right: 0.5%; */
+    margin-bottom: 5%;
+    padding: 1rem;
+    
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.075);
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    /*border: 2px solid green;*/
+}
+
+nav ul {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    /*border: 2px solid red;*/
+}
+
+nav li {
+    display: inline;
+    margin-top: 0;    
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    /*border: 2px solid blue;*/
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #282828;
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+#container-principal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    /*border: 4px solid black;*/
+}
+
+#container-profile-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 100vw; /*aqui mexeu com oq eu queria*/
+    min-width: 20vw;
+    min-height: 40vh;
+
+    padding: 1rem;
+
+    border: 4px solid black;
+    border-radius: 8px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+
+    background: rgba(255,255,255,0.15);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,0.075);
+}
+
+#container-profile-card {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 2%;
+
+    /*border: 4px solid red;*/
+}
+
+#container-img-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15%;
+
+    /*border: 4px solid white;*/
+}
+
+#container-span-card {
+    display: block;
+    justify-content: center;
+    align-items: center;
+
+    /*border: 4px solid green*/
+}
+
+#container-span-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: larger;
+    /*border: 4px solid yellow;*/
+}
+
+#container-disconnect-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+
+    /*border: 4px solid blue;*/
+}
+
+
+#disconnect-button {
+    background: #ff4267;
+    color: #282828;
+    font-size: 1.2rem;
+    width: 100%;
+    /*margin: 5% 0% 1% 0%;*/
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    border-radius: 20px;
+    transition: all 0.1s ease-in;
+}
+
+#disconnect-button:hover {
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+}

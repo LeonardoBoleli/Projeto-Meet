@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="cadastrar.css">
-        <link rel="shortcut icon" type="image/png" href="../imagens/favicon-64x64.png">
+        <link rel="shortcut icon" type="image/png" href="/imagens/favicon-64x64.png">
         <title>Meet</title>
     </head>
 
@@ -14,17 +14,17 @@
             <div id="container-login">
                 <div id="container-top">
                     <div id="container-tucano">
-                        <img id="tucano-img" src="../imagens/tucanoNovo.png" draggable="false">
+                        <img id="tucano-img" src="imagens/tucanoNovo.png" draggable="false">
                     </div>
                     <div id="login-text">
-                        <p>Login teste</p>
+                        <span>Login</span>
                     </div>
                 </div>
                 <div id="container-login-inputs">
-                    <form action="/main" method="post">  <!--VOLTAR AQUI PRA CONFIGURAR O SERVIDOR-->
+                    <form action="/logar" method="post">  <!--VOLTAR AQUI PRA CONFIGURAR O SERVIDOR-->
                         <div class="label-float">
                             <input class="input" type="text" placeholder=" " id="usuario" name="username" required>
-                            <label>E-mail</label><br><br>
+                            <label>Username</label><br><br>
                         </div> 
                         <div class="label-float">
                             <input class="input" type="password" placeholder=" " id="senha" name="password" required>
@@ -37,13 +37,13 @@
                 </div>
                 <div id="container-login2">
                     <div id="container-txt1">
-                        <p>Or connect with social media</p><br>
+                        <span>Or connect with social media</span><br>
                     </div>
                     <div id="container-outside-logo">
                         <div class="container-logos">
-                            <img class="logo-img" src="../imagens/facebook-icon.png">
-                            <img class="logo-img" src="../imagens/google-icon.png">
-                            <img class="logo-img" src="../imagens/apple-icon.png">
+                            <img class="logo-img" src="/imagens/facebook-icon.png">
+                            <img class="logo-img" src="/imagens/google-icon.png">
+                            <img class="logo-img" src="/imagens/apple-icon.png">
                         </div>
                     </div>
                 </div>
@@ -52,12 +52,12 @@
                         <nav>
                             <ul>
                                 <div id="container-msg-links">
-                                    <p>Não tem uma conta? &nbsp;</p>   
-                                    <li><a href="cadastrar.html">Cadastre-se</a></li>
+                                    <span>Don't have an account? &nbsp;</span>   
+                                    <li><a href="../www/cadastrar.html">Register</a></li>
                                 </div>
                                 <div id="container-msg-links">
-                                    <p>Esqueceu sua senha? &nbsp;</p>
-                                    <li><a href="redefinir-senha.html">Trocar senha</a></li>
+                                    <span>Forgot your password? &nbsp;</span>
+                                    <li><a href="redefinir-senha.html">Reset</a></li>
                                 </div>
                             </ul>
                         </nav>
