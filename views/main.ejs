@@ -1,213 +1,186 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="reset.css">
-        <link rel="stylesheet" type="text/css" href="principal.css">
-        <link rel="shortcut icon" type="image/png" href="imagens/favicon-64x64.png">
-        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-        <title>Meet</title>
-    </head>
 
-    <body>
-        <div id="container-header"><img src="imagens/tucanoHeader.png">
-            <nav>
-                <ul>
-                    <li><a href="../www/home.html">Home</a></li>
-                    <li><a href="../www/popular.html">My groups</a></li>
-                    <li><a href="../www/marketplace.html">Marketplace</a></li>
-                    <li><a href="../www/perfil.html">Profile</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div id="page-info">
-            <div id="creation-group">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="principal.css">
+    <link rel="shortcut icon" type="image/png" href="imagens/favicon-64x64.png">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/48764efa36.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <title>Meet</title>
+</head>
+
+<body>
+    <div id="container-header"><img src="imagens/tucanoHeader.png">
+        <nav>
+            <ul>
+                <li><a href="../www/home.html">Home</a></li>
+                <li><a href="../www/popular.html">My groups</a></li>
+                <li><a href="../www/marketplace.html">Marketplace</a></li>
+                <li><a href="../www/perfil.html">Profile</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="page-info">
+        <div id="creation-group">
+            <button type="button" id="plus-button">
                 <span id="txt-creation">New group</span>
-            </div>
-            <div id="creation-group-button">
-                <button type="button" id="plus-button">
-                    <ion-icon name="add-circle-outline"></ion-icon>
-                </button>
-            </div>
+            </button>            
         </div>
+        
+    </div>
+    <div class="popup">
+        <div class="close-button">&times;</div>
+        <form action="/criar" method="post" class="form">
+            <h2>Create group</h2>
+            <div class="form-element">
+                <input type="text" id="group-name" placeholder=" " name="nomeGrupo" required>
+                <label for="group-name">Name</label>
+            </div>
+            <div class="form-button">
+                <button type="submit">Create!</button>
+            </div>
+        </form>
+    </div>
 
+    <!--
+        GRUPOS RECOMENDADOS
+    -->
+    <div class="section">
+        <span class="section-name">Recommended groups</span>
+    
 
-        <div class="menu">
-            <div class="menu--wrapper">
-                <% for (let i = 0; i < total; i++) { %>
-                    <figure>
-                        <div class="menu--item">
-                            <div class="card-img">
-                                <img src="/imagens/grupo.png" class="group-img">
-                            </div>
-                            <div class="card-span">      
-                                <span><%= nome[i] %></span>
+    <%if(total){%>
+        <div id="wrapper">
+            <div id="carousel">
+                <div id="content">
+                    <% for (let i=0; i < total; i++) { %>
+                        <div class="item">                            
+                            <img class="card-img" src="/imagens/grupo.png" alt="1" />
+                                                     
+                            <h1 class="card-span">
+                                <%= nome[i] %>
+                            </h1>
+                            <div class="card-integrantes">
+                                <i class="fa fa-user" aria-hidden="true">10</i>
                             </div>
                             <div class="card-button">
                                 <button type="submit" class="join-button">Join!</button>
                             </div>
                         </div>
-                    </figure>            
-                <% } %>
+                    <% } %>
+                </div>
             </div>
+            <button id="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                    <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                </svg>
+            </button>
+            <button id="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                    <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                </svg>
+            </button>
         </div>
+    <%}%>
+</div>
 
+    <!--
+    GRUPOS POPULARES
+    -->
+    <div class="section">
+        <span class="section-name">Popular groups</span>
+    
 
-
-
-        <div class="popup">
-            <div class="close-button">&times;</div>
-            <form action="/criar" method="post" class="form">
-                <h2>Create group</h2>
-                <div class="form-element">
-                    <input type="text" id="group-name" placeholder=" " name="nomeGrupo" required>
-                    <label for="group-name">Name</label>
+    <%if(total){%>
+        <div id="wrapper">
+            <div id="carousel">
+                <div id="content">
+                    <% for (let i=0; i < total; i++) { %>
+                        <div class="item">
+                            <img class="card-img" src="/imagens/grupo.png" alt="1" />
+                            <h1 class="card-span">
+                                <%= nome[i] %>
+                            </h1>
+                            <div class="card-integrantes">
+                                <i class="fa fa-user" aria-hidden="true">10</i>
+                            </div>
+                            <div class="card-button">
+                                <button type="submit" class="join-button">Join!</button>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
-                <div class="form-button">
-                    <button type="submit">Create!</button>
-                </div>
-            </form>
+            </div>
+            <button id="prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                    <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                </svg>
+            </button>
+            <button id="next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z" />
+                    <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                </svg>
+            </button>
         </div>
+    <%}%>
+</div>
 
 
-        <script>
-            
-            /*--------------------
-            Vars
-            --------------------*/
-            const $menu = document.querySelector('.menu')
-            const $items = document.querySelectorAll('.menu--item')
-            const $images = document.querySelectorAll('.card-img')
-            let menuWidth = $menu.clientWidth
-            let itemWidth = $items[0].clientWidth
-            let wrapWidth = $items.length * itemWidth
 
-            let scrollSpeed = 0
-            let oldScrollY = 0
-            let scrollY = 0
-            let y = 0
+    <script>
+        const gap = 50;
 
+        const carousel = document.getElementById("carousel"),
+            content = document.getElementById("content"),
+            next = document.getElementById("next"),
+            prev = document.getElementById("prev");
 
-            /*--------------------
-            Lerp
-            --------------------*/
-            const lerp = (v0, v1, t) => {
-            return v0 * ( 1 - t ) + v1 * t
+        next.addEventListener("click", e => {
+            carousel.scrollBy(width + gap, 0);
+            if (carousel.scrollWidth !== 0) {
+                prev.style.display = "flex";
             }
-
-
-            /*--------------------
-            Dispose
-            --------------------*/
-            const dispose = (scroll) => {
-            gsap.set($items, {
-                x: (i) => {
-                return i * itemWidth + scroll
-                },
-                modifiers: {
-                x: (x, target) => {
-                    const s = gsap.utils.wrap(-itemWidth, wrapWidth - itemWidth, parseInt(x))
-                    return `${s}px`
-                }
-                }
-            })
-            } 
-            dispose(0)
-
-
-            /*--------------------
-            Wheel
-            --------------------*/
-            const handleMouseWheel = (e) => {
-            scrollY -= e.deltaY * 0.9
+            if (content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+                next.style.display = "none";
             }
-
-
-            /*--------------------
-            Touch
-            --------------------*/
-            let touchStart = 0
-            let touchX = 0
-            let isDragging = false
-            const handleTouchStart = (e) => {
-            touchStart = e.clientX || e.touches[0].clientX
-            isDragging = true
-            $menu.classList.add('is-dragging')
+        });
+        prev.addEventListener("click", e => {
+            carousel.scrollBy(-(width + gap), 0);
+            if (carousel.scrollLeft - width - gap <= 0) {
+                prev.style.display = "none";
             }
-            const handleTouchMove = (e) => {
-            if (!isDragging) return
-            touchX = e.clientX || e.touches[0].clientX
-            scrollY += (touchX - touchStart) * 2.5
-            touchStart = touchX
+            if (!content.scrollWidth - width - gap <= carousel.scrollLeft + width) {
+                next.style.display = "flex";
             }
-            const handleTouchEnd = () => {
-            isDragging = false
-            $menu.classList.remove('is-dragging')
-            }
+        });
 
-
-            /*--------------------
-            Listeners
-            --------------------*/
-            $menu.addEventListener('mousewheel', handleMouseWheel)
-
-            $menu.addEventListener('touchstart', handleTouchStart)
-            $menu.addEventListener('touchmove', handleTouchMove)
-            $menu.addEventListener('touchend', handleTouchEnd)
-
-            $menu.addEventListener('mousedown', handleTouchStart)
-            $menu.addEventListener('mousemove', handleTouchMove)
-            $menu.addEventListener('mouseleave', handleTouchEnd)
-            $menu.addEventListener('mouseup', handleTouchEnd)
-
-            $menu.addEventListener('selectstart', () => { return false })
-
-
-            /*--------------------
-            Resize
-            --------------------*/
-            window.addEventListener('resize', () => {
-            menuWidth = $menu.clientWidth
-            itemWidth = $items[0].clientWidth
-            wrapWidth = $items.length * itemWidth
-            })
-
-
-            /*--------------------
-            Render
-            --------------------*/
-            const render = () => {
-            requestAnimationFrame(render)
-            y = lerp(y, scrollY, .1)
-            dispose(y)
-            
-            scrollSpeed = y - oldScrollY
-            oldScrollY = y
-            
-            gsap.to($items, {
-                skewX: -scrollSpeed * .2,
-                rotate: scrollSpeed * .01,
-                scale: 1 - Math.min(100, Math.abs(scrollSpeed)) * 0.003
-            })
-            }
-            render()
-        </script>
-
-
-        <script>   
-            document.querySelector("#plus-button").addEventListener("click", function(){
-                document.querySelector(".popup").classList.add("active");
-            })
-            document.querySelector(".popup .close-button").addEventListener("click", function(){
+        let width = carousel.offsetWidth;
+        console.log(width)
+        window.addEventListener("resize", e => (width = carousel.offsetWidth));
+    </script> 
+    <script>
+        document.querySelector("#plus-button").addEventListener("click", function () {
+            document.querySelector(".popup").classList.add("active");
+        })
+        document.querySelector(".popup .close-button").addEventListener("click", function () {
+            document.querySelector(".popup").classList.remove("active");
+        })
+        if (document.getElementById("group-name") !== valueMissing) {
+            document.querySelector(".popup .form-button").addEventListener("click", function () {
                 document.querySelector(".popup").classList.remove("active");
             })
-            if (document.getElementById("group-name") !== valueMissing){
-                document.querySelector(".popup .form-button").addEventListener("click", function(){
-                document.querySelector(".popup").classList.remove("active");
-            })
-            }
-        </script>
-    </body>
+        }
+    </script>
+</body>
+
 </html>
