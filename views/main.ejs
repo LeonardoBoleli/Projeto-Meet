@@ -8,20 +8,18 @@
     <link rel="stylesheet" type="text/css" href="principal.css">
     <link rel="shortcut icon" type="image/png" href="imagens/favicon-64x64.png">
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-    <script src="https://kit.fontawesome.com/48764efa36.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Meet</title>
 </head>
 
 <body>
-    <div id="container-header"><img src="imagens/tucanoHeader.png">
+    <div id="container-header">
+        <img src="/imagens/tucanoHeader.png" id="tucano-img">
         <nav>
             <ul>
                 <li><a href="main">Home</a></li>
-                <li><a href="www/popular.html">My groups</a></li>
-                <li><a href="/profile">Profile</a></li>
+                <li><a href="/chat">My groups</a></li>
+                <li><a href="profile">Profile</a></li>
             </ul>
         </nav>
     </div>
@@ -29,16 +27,165 @@
         <div id="creation-group">
             <button type="button" id="plus-button">
                 <span id="txt-creation">New group</span>
-            </button>            
+            </button>
         </div>
-        
     </div>
+
+
+    <!--
+    GRUPOS RECOMENDADOS
+    -->
+    <div class="section">
+        <span class="section-name">Recommended groups</span>
+
+
+        <%if(total){%>
+            <div id="wrapper">
+                <div id="carousel">
+                    <div id="content">
+                        <% for (let i=0; i < total; i++) { %>
+                            <div class="item">
+                                <img class="card-img" src="/imagens/grupo.png" alt="1" />
+                                <h1 class="card-span">
+                                    <span>
+                                        <%= nome[i] %>
+                                    </span>
+                                </h1>
+
+
+                                <div class="card-button">
+                                    <div class="card-button">
+                                        <a href="/chat?grupo=<%=nome[i]%>&id_grupo=<%=id[i]%>" class="join-button"
+                                            onclick="esperar(`${<%=id[i]%>}`)">Join!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <button id="prev">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                    </svg>
+                </button>
+                <button id="next">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                    </svg>
+                </button>
+            </div>
+            <%}%>
+    </div>
+
+
+
+
+
+
+
+
+    <!--
+    GRUPOS POPULARES
+    -->
+    <div class="section">
+        <span class="section-name">Popular groups</span>
+
+
+        <%if(total){%>
+            <div id="wrapper2">
+                <div id="carousel2">
+                    <div id="content2">
+                        <% for (let i=0; i < total; i++) { %>
+                            <div class="item">
+                                <img class="card-img" src="/imagens/grupo.png" alt="1" />
+                                <h1 class="card-span">
+                                    <span>
+                                        <%= nome[i] %>
+                                    </span>
+                                </h1>
+
+
+                                <div class="card-button">
+                                    <div class="card-button">
+                                        <a href="/chat?grupo=<%=nome[i]%>&id_grupo=<%=id[i]%>" class="join-button"
+                                            onclick="esperar(`${<%=id[i]%>}`)">Join!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <button id="prev2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                    </svg>
+                </button>
+                <button id="next2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                    </svg>
+                </button>
+            </div>
+            <%}%>
+    </div>
+
+    <!--
+    GRUPOS SEGUINDO
+    -->
+    <div class="section">
+        <span class="section-name">Following groups</span>
+
+
+        <%if(total){%>
+            <div id="wrapper3">
+                <div id="carousel3">
+                    <div id="content3">
+                        <% for (let i=0; i < total; i++) { %>
+                            <div class="item">
+                                <img class="card-img" src="/imagens/grupo.png" alt="1" />
+                                <h1 class="card-span">
+                                    <span>
+                                        <%= nome[i] %>
+                                    </span>
+                                </h1>
+
+
+                                <div class="card-button">
+                                    <div class="card-button">
+                                        <a href="/chat?grupo=<%=nome[i]%>&id_grupo=<%=id[i]%>" class="join-button"
+                                            onclick="esperar(`${<%=id[i]%>}`)">Join!</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+                <button id="prev3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
+                    </svg>
+                </button>
+                <button id="next3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="none" d="M0 0h24v24H0V0z" />
+                        <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
+                    </svg>
+                </button>
+            </div>
+            <%}%>
+    </div>
+
     <div class="popup">
         <div class="close-button">&times;</div>
         <form action="/criar" method="post" class="form">
             <h2>Create group</h2>
             <div class="form-element">
-                <input type="text" id="group-name" placeholder=" " name="nomeGrupo" required>
+                <input type="text" id="group-name" placeholder=" " name="nomeGrupo" maxlength="20" required>
                 <label for="group-name">Name</label>
             </div>
             <div class="form-button">
@@ -46,138 +193,6 @@
             </div>
         </form>
     </div>
-
-    <!--
-        GRUPOS RECOMENDADOS
-    -->
-    <div class="section">
-        <span class="section-name">Recommended groups</span>
-    
-
-    <%if(total){%>
-        <div id="wrapper">
-            <div id="carousel">
-                <div id="content">
-                    <% for (let i=0; i < total; i++) { %>
-                        <div class="item">                            
-                            <img class="card-img" src="/imagens/grupo.png" alt="1" />
-                                                     
-                            <h1 class="card-span">
-                                <%= nome[i] %>
-                            </h1>
-                            <div class="card-integrantes">
-                                <i class="fa fa-user" aria-hidden="true">10</i>
-                            </div>
-                            <div class="card-button">
-                                <button type="submit" class="join-button">Join!</button>
-                            </div>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-            <button id="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-                </svg>
-            </button>
-            <button id="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-                </svg>
-            </button>
-        </div>
-    <%}%>
-</div>
-
-    <!--
-    GRUPOS POPULARES
-    -->
-    <div class="section">
-        <span class="section-name">Popular groups</span>
-    
-
-    <%if(total){%>
-        <div id="wrapper">
-            <div id="carousel">
-                <div id="content">
-                    <% for (let i=0; i < total; i++) { %>
-                        <div class="item">
-                            <img class="card-img" src="/imagens/grupo.png" alt="1" />
-                            <h1 class="card-span">
-                                <%= nome[i] %>
-                            </h1>
-                            <div class="card-integrantes">
-                                <i class="fa fa-user" aria-hidden="true">10</i>
-                            </div>
-                            <div class="card-button">
-                                <button type="submit" class="join-button">Join!</button>
-                            </div>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-            <button id="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-                </svg>
-            </button>
-            <button id="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-                </svg>
-            </button>
-        </div>
-    <%}%>
-    </div>
-
-    <!--
-    GRUPOS SEGUINDO
-    -->
-    <div class="section">
-        <span class="section-name">Following</span>
-    
-
-    <%if(total){%>
-        <div id="wrapper">
-            <div id="carousel">
-                <div id="content">
-                    <% for (let i=0; i < total; i++) { %>
-                        <div class="item">
-                            <img class="card-img" src="/imagens/grupo.png" alt="1" />
-                            <h1 class="card-span">
-                                <%= nome[i] %>
-                            </h1>
-                            <div class="card-integrantes">
-                                <i class="fa fa-user" aria-hidden="true">10</i>
-                            </div>
-                            <div class="card-button">
-                                <button type="submit" class="join-button">Join!</button>
-                            </div>
-                        </div>
-                    <% } %>
-                </div>
-            </div>
-            <button id="prev">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z" />
-                </svg>
-            </button>
-            <button id="next">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="none" d="M0 0h24v24H0V0z" />
-                    <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z" />
-                </svg>
-            </button>
-        </div>
-    <%}%>
-    </div>
-
-
 
     <script>
         const gap = 50;
@@ -209,7 +224,72 @@
         let width = carousel.offsetWidth;
         console.log(width)
         window.addEventListener("resize", e => (width = carousel.offsetWidth));
-    </script> 
+    </script>
+
+    <script>
+        const gap2 = 50;
+
+        const carousel2 = document.getElementById("carousel2"),
+            content2 = document.getElementById("content2"),
+            next2 = document.getElementById("next2"),
+            prev2 = document.getElementById("prev2");
+
+        next2.addEventListener("click", e => {
+            carousel2.scrollBy(width2 + gap2, 0);
+            if (carousel2.scrollWidth !== 0) {
+                prev2.style.display = "flex";
+            }
+            if (content2.scrollWidth - width2 - gap2 <= carousel2.scrollLeft + width2) {
+                next2.style.display = "none";
+            }
+        });
+        prev2.addEventListener("click", e => {
+            carousel2.scrollBy(-(width2 + gap2), 0);
+            if (carousel2.scrollLeft - width2 - gap2 <= 0) {
+                prev2.style.display = "none";
+            }
+            if (!content2.scrollWidth - width2 - gap2 <= carousel2.scrollLeft + width2) {
+                next2.style.display = "flex";
+            }
+        });
+
+        let width2 = carousel2.offsetWidth;
+        console.log(width2)
+        window.addEventListener("resize", e => (width2 = carousel2.offsetWidth));
+    </script>
+
+    <script>
+        const gap3 = 50;
+
+        const carousel3 = document.getElementById("carousel3"),
+            content3 = document.getElementById("content3"),
+            next3 = document.getElementById("next3"),
+            prev3 = document.getElementById("prev3");
+
+        next3.addEventListener("click", e => {
+            carousel3.scrollBy(width3 + gap3, 0);
+            if (carousel3.scrollWidth !== 0) {
+                prev3.style.display = "flex";
+            }
+            if (content3.scrollWidth - width3 - gap3 <= carousel3.scrollLeft + width3) {
+                next3.style.display = "none";
+            }
+        });
+        prev3.addEventListener("click", e => {
+            carousel3.scrollBy(-(width3 + gap3), 0);
+            if (carousel3.scrollLeft - width3 - gap3 <= 0) {
+                prev3.style.display = "none";
+            }
+            if (!content3.scrollWidth - width3 - gap3 <= carousel3.scrollLeft + width3) {
+                next3.style.display = "flex";
+            }
+        });
+
+        let width3 = carousel3.offsetWidth;
+        console.log(width3)
+        window.addEventListener("resize", e => (width3 = carousel3.offsetWidth));
+    </script>
+
     <script>
         document.querySelector("#plus-button").addEventListener("click", function () {
             document.querySelector(".popup").classList.add("active");

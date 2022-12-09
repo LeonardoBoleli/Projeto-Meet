@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/www/reset.css">
+        <link rel="stylesheet" type="text/css" href="/www/profile.css">
+        <link rel="shortcut icon" type="image/png" href="/imagens/favicon-64x64.png">
+        <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+        <title>Meet</title>
+    </head>
+
+    <body>
+        <div id="container-header"><img src="/imagens/tucanoHeader.png">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="popular.html">My groups</a></li>
+                    <li><a href="profile.ejs">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="container-principal">
+            <div id="container-profile-card">
+                <div id="container-img-card">
+                    <img src="/imagens/profile-icon.png">
+                </div>
+                <div id="container-span-card">
+                    <div id="container-span-info">
+                        <span class="profile-name">Nome: Eduardo Silva Jorge</span>
+                    </div>
+
+                    <div id="container-span-info">
+                        <span class="profile-email">E-mail: eduardosilvajorge1@gmail.com</span>
+                    </div>
+                    
+                    <div id="container-span-info">
+                        <span class="profile-username">Username: eduardo_jorge7</span>
+                    </div>
+                </div>
+
+                <div id="container-disconnect-button">
+                    <form action="/destroy" method="get">
+                        <button type="submit" id="disconnect-button">Disconnect</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

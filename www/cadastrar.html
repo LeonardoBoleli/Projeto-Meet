@@ -5,65 +5,102 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="cadastrar.css">
-        <link rel="shortcut icon" type="image/png" href="/imagens/favicon-64x64.png">
+        <link rel="shortcut icon" type="image/png" href="imagens/favicon-64x64.png">
         <title>Meet</title>
     </head>
 
     <body>
-        <div id="container-login">
-            <div id="container-top">
-                <div id="container-tucano">
-                    <img id="tucano-img" src="/imagens/tucanoNovo.png" draggable="false">
-                </div>
-                <div id="login-text">
-                    <span>Register</span>
-                </div>
+        <div class="header">
+            <!--Content before waves-->
+            <div class="inner-header flex">
+            <!--Just the logo.. Don't mind this-->
             </div>
-            <div id="container-login-inputs">
-                <form action="/cadastrar" method="post"> <!--deveria ser um post aqui?-->
-                    <div class="label-float">
-                        <input class="input" type="text" placeholder=" " id="usuario" name="fullname" required>
-                        <label>Full Name</label><br><br>
+            
+            <!--Waves Container-->
+            <div>
+
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+
+                    <g class="parallax">
+
+                        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,66,103,0.7" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,66,103,0.5)" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,66,103,0.3)" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255,66,103,0.3)" />
+                    </g>
+                </svg>
+            </div>
+            <!--Waves end-->
+            
+            <div class="content flex">
+                <span>&#169; Designed by Meet</span>
+            </div>
+
+            </div>
+
+
+
+
+
+            <div id="container-login">
+                <div id="container-top">
+                    <div id="container-tucano">
+                        <img id="tucano-img" src="/imagens/tucanoNovo.png" draggable="false">
                     </div>
-                    <div class="label-float">
-                        <input class="input" type="text" placeholder=" " id="usuario" name="username" required>
-                        <label>Username</label><br><br>
-                    </div> 
-                    <div class="label-float">
-                        <input class="input" type="text" placeholder=" " id="usuario" name="email" required>
-                        <label>E-mail</label><br><br>
-                    </div> 
-                    <div class="label-float">
-                        <input class="input" type="password" placeholder=" " id="senha" name="password" required>
-                        <label>Password</label>
+                    <div id="login-text">
+                        <span>Register</span>
                     </div>
-                        <div id="container-button">
-                            <button id="login-button" type="submit">Sign up</button>
+                </div>
+                <div id="container-login-inputs">
+                    <form action="/cadastrar" method="post"> <!--deveria ser um post aqui?-->
+                        <div class="label-float">
+                            <input class="input" type="text" placeholder=" " id="usuario" name="fullname" required>
+                            <label>Full Name</label><br><br>
                         </div>
-                </form>
-            </div>
-            <div id="container-login2">
-                <div id="container-txt1">
-                    <span>Or connect with social media</span><br>
+                        <div class="label-float">
+                            <input class="input" type="text" placeholder=" " id="usuario" name="username" maxlength="20" required>
+                            <label>Username</label><br><br>
+                        </div> 
+                        <div class="label-float">
+                            <input class="input" type="text" placeholder=" " id="usuario" name="email" required>
+                            <label>E-mail</label><br><br>
+                        </div> 
+                        <div class="label-float">
+                            <input class="input" type="password" placeholder=" " id="senha" name="password" required>
+                            <label>Password</label>
+                        </div>
+                            <div id="container-button">
+                                <button id="login-button" type="submit">Sign up</button>
+                            </div>
+                    </form>
                 </div>
-                <div id="container-outside-logo">
-                    <div class="container-logos">
-                        <img class="logo-img" src="/imagens/facebook-icon.png">
-                        <img class="logo-img" src="/imagens/google-icon.png">
-                        <img class="logo-img" src="/imagens/apple-icon.png">
+                <div id="container-login2">
+                    <div id="container-txt1">
+                        <span>Or connect with social media</span><br>
+                    </div>
+                    <div id="container-outside-logo">
+                        <div class="container-logos">
+                            <img class="logo-img" src="/imagens/facebook-icon.png">
+                            <img class="logo-img" src="/imagens/google-icon.png">
+                            <img class="logo-img" src="/imagens/apple-icon.png">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="container-links-outside-outside">
-                <div id="container-links-outside">
-                    <nav>
-                        <ul>
-                            <div id="container-msg-links">
-                                <span>Already have an account? &nbsp;</span>   
-                                <li><a href="index.html">Log in</a></li>
-                            </div>
-                        </ul>
-                    </nav>
+                <div id="container-links-outside-outside">
+                    <div id="container-links-outside">
+                        <nav>
+                            <ul>
+                                <div id="container-msg-links">
+                                    <span>Already have an account? &nbsp;</span>   
+                                    <li><a href="index.html">Log in</a></li>
+                                </div>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>

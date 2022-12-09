@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="reset.css">
+        <link rel="stylesheet" type="text/css" href="chat.css">
+        <link rel="shortcut icon" type="image/png" href="imagens/favicon-64x64.png">
+        <script src="https://kit.fontawesome.com/505b6d39db.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Meet</title>
+    </head>
+
+    <body>
+        <div id="container-principal">
+            <div id="container-interno">
+                <div id="container-externo-header">
+                    <div id="container-header">
+                        <nav>
+                            <div id="container-arrow-button">
+                                <button type="button" id="return-arrow-button" onclick="returnButton()">
+                                    <i class="fa-solid fa-circle-arrow-left fa-3x"></i>
+                                </button>
+                            </div>
+
+                            <ul>
+                                <li><span><%=nomegp%></span></li>
+                            </ul>
+                            <div id="container-tucano-img">
+                                <img src="/imagens/tucanoHeaderChat.png" id="tucano-img">
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+
+                <div id="campo-msg">
+                    <ul id="ul_mensagem"></ul>
+                </div>
+
+                <div id="container-bottom-itens">
+                    <div id="container-msg">
+
+                        <div id="containet-input">
+                            <input type="text" name="msg" id="mensagem" contenteditable="true" required>
+                        </div>
+
+                        <div id="container-button">
+                            <button type="submit" id="send-button">
+                                <i class="fa-regular fa-paper-plane fa-2x"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </script>
+
+    <!--Script web sokcet-->
+    
+        <script>
+
+            async function getInfo(){
+                const data = await axios({
+                    method: 'get',
+                    url: '/chat/find'                
+                });
+
+                console.log(data.data);
+            }
+            getInfo();         
+
+
+            function returnButton(){
+                window.history.back();
+            }
+            
+        </script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            let socket = io();
+            let mensagem = document.getElementById('mensagem');
+            let btn_send = document.getElementById('send-button');
+
+            let div_msgs = document.getElementById('ul_mensagem');
+
+
+
+            btn_send.addEventListener("click", function(event){
+                event.preventDefault();
+                if(mensagem.value){
+                    socket.emit("chat_msg", mensagem.value);
+                    mensagem.value = '';
+                }
+            });
+
+            socket.on('chat_msg', function(msg){
+                let item = document.createElement('li');
+                item.textContent = msg;
+                div_msgs.appendChild(item);
+                window.scrollTo(0, document.body.scrollHeight);
+            })
+
+        </script>
+    
+    </body>
+</html>
